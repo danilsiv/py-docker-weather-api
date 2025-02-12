@@ -3,14 +3,14 @@ import requests
 
 
 def get_weather() -> None:
-    URL = "https://api.weatherapi.com/v1/current.json?"
-    FILTERING = "Paris"
+    url = "https://api.weatherapi.com/v1/current.json?"
+    filtering = "Paris"
 
-    API_KEY = os.getenv("API_KEY")
-    if not API_KEY:
+    api_key = os.getenv("API_KEY")
+    if not api_key:
         raise ValueError("The API_KEY must be set!")
 
-    response = requests.get(URL + f"key={API_KEY}&q={FILTERING}")
+    response = requests.get(url + f"key={api_key}&q={filtering}")
     data = response.json()
 
     city = data["location"]["name"]
